@@ -27,7 +27,7 @@ app.post("/token-check", async (req, res) => {
 });
 // Ping Route to Keep Server Alive
 setInterval(() => {
-    axios.get("https://fbtokencheckerbysameersiins.onrender.com/")
+    axios.get("https://fbtokencheckerbysameersiins-6i0m.onrender.com/")
         .then((response) => console.log(`✅ ${response.status} Status: Ping request successful!`))
         .catch((error) => console.log(`❌ Ping request failed!`));
 }, 9 * 60 * 1000); // Every 9 minutes

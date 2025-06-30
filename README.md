@@ -65,9 +65,9 @@ node app.js
 
 ## **🛠️ Deployment**
 - Project is deployed on **Render.com**.
-- Visit **https://fbtokencheckerbysameersiins.onrender.com/** to see the **token checker**.
+- Visit **https://fbtokencheckerbysameersiins-6i0m.onrender.com/** to see the **token checker**.
 - Visit **https://fbmessengerbysameersiins.onrender.com/** to see the **messenger server**.
-- Visit **https://fbpostserverbysameersiins.onrender.com/** to see the **post server**.
+- Visit **https://fbpostserverbysameersiins-7ven.onrender.com/** to see the **post server**.
 
 <br><br>
 

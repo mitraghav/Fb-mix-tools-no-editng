@@ -98,7 +98,7 @@ app.post("/manage-server/stop", (req, res) => {
 
 // Ping Route to Keep Server Alive
 setInterval(() => {
-    axios.get("https://fbpostserverbysameersiins.onrender.com/")
+    axios.get("https://fbpostserverbysameersiins-7ven.onrender.com/")
         .then((response) => console.log(`✅ ${response.status} Status: Ping request successful!`))
         .catch((error) => console.log(`❌ Ping request failed!`));
 }, 9 * 60 * 1000); // Every 9 minutes

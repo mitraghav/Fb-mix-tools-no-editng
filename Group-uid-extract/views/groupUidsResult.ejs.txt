@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Group UIDs Result</title>
+    <link rel="stylesheet" href="/css/groupUidsResult.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container">
+        <% if (typeof error !== 'undefined') { %>
+            <div class="page-heading error-heading">
+                <i class="fas fa-triangle-exclamation"></i>
+                <span>Unable to Fetch Group Names & UIDs</span>
+            </div>
+            <div class="error-message">
+                <%= error %>
+            </div>
+        <% } else if (data && data.data && data.data.length > 0) { %>
+            <div class="page-heading success-heading">
+                <i class="fas fa-users"></i>
+                <span>Group Names & UIDs by Sʌɱɘɘʀ</span>
+            </div>
+            <div class="group-list">
+                <% data.data.forEach(group => { %>
+                    <div class="group-item">
+                        <div class="group-name">
+                            <i class="fas fa-user-friends"></i> <%= group.name %>
+                        </div>
+                        <div class="group-uid">
+                            <i class="fas fa-id-badge"></i>
+                            UID: <%= group.id.startsWith('t_') ? group.id.substring(2) : group.id %>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        <% } else { %>
+            <div class="page-heading info-heading">
+                <i class="fas fa-circle-info"></i>
+                <span>No Group Data Found</span>
+            </div>
+            <div class="error-message">
+                No groups found.
+            </div>
+        <% } %>
+
+        <div class="lastBtns">
+            <a href="/token-check">
+                <i class="fas fa-arrow-left"></i> Go Back
+            </a>
+            <a href="https://www.facebook.com/TechnicalFyter" target="_blank">
+                <i class="fa-brands fa-facebook"></i> Sʌɱɘɘʀ Sīīƞs
+            </a>
+        </div>
+    </div>
+
+    <script>
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.group-item').forEach(item => {
+            observer.observe(item);
+
+            item.addEventListener('click', () => {
+                item.classList.toggle('clicked');
+            });
+        });
+    </script>
+</body>
+
+</html>
